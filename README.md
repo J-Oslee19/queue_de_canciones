@@ -1,6 +1,6 @@
-###Spotify Queue Simulation - Programación III
+# Spotify Queue Simulation - Programación III
 
-# Descripción General
+## Descripción General
 
 Este proyecto consiste en el diseño e implementación de una simulación tipo Spotify utilizando una estructura de datos Cola (FIFO) desarrollada completamente desde cero en Java.
 
@@ -14,19 +14,19 @@ El sistema simula la reproducción realista de canciones desde consola, integran
 -Simulación segundo a segundo
 -Ejecución desde consola
 
-# Estructura del Repositorio
+## Estructura del Repositorio
 /umg.edu.gt.data-structure.queue
 /queueHandler
 /evidencias
 README.md 
 -----
-### Parte A — Librería de Cola
+# Parte A — Librería de Cola
 
 Proyecto: umg.edu.gt.data-structure.queue
 
 Se implementó una cola genérica basada en nodos enlazados.
 
-Características:
+## Características:
 
 -Implementación genérica QueueLinked<T>
 -Clase Node<T>
@@ -35,19 +35,19 @@ Características:
 -Encapsulamiento correcto
 -No se exponen nodos internos
 
-# Complejidad:
+## Complejidad:
 
 -enqueue() → O(1)
 -dequeue() → O(1)
 -No se recorre la lista para insertar
 
-# Manejo de errores:
+## Manejo de errores:
 
 Si se intenta hacer dequeue() o peek() en una cola vacía, se lanza:
 
 IllegalStateException("Queue is empty.")
 
-# Cómo compilar la librería
+## Cómo compilar la librería
 
 Desde la carpeta:
 
@@ -60,7 +60,7 @@ mvn clean install
 Esto instala la librería en el repositorio local de Maven.
 
 -----
-### Parte B — Simulación de Reproducción
+# Parte B — Simulación de Reproducción
 
 Proyecto: queueHandler
 
@@ -75,7 +75,7 @@ Cada canción contiene:
 
 Las duraciones son variables para simular un comportamiento realista.
 
-# Cómo compilar el handler
+## Cómo compilar el handler
 
 Desde la carpeta:
 
@@ -85,7 +85,7 @@ Ejecutar:
 
 mvn clean package
 
-# Cómo ejecutar desde consola
+## Cómo ejecutar desde consola
 
 Ubicado dentro de la carpeta queueHandler, ejecutar:
 
@@ -94,20 +94,20 @@ mvn exec:java -Dexec.mainClass="umg.edu.gt.handler.Main"
 Este comando permite ejecutar la clase principal incluyendo automáticamente las dependencias instaladas en el repositorio local de Maven.
 
 -----
-### Parte C — Sistema de Prioridad
+# Parte C — Sistema de Prioridad
 
 Para implementar la prioridad sin romper el orden FIFO interno, se utilizaron dos instancias de la cola personalizada:
 
 -Cola de prioridad alta (priority = 1)
 -Cola de prioridad normal (priority = 2)
 
-# Reglas aplicadas:
+## Reglas aplicadas:
 
 -Siempre se reproducen primero las canciones de prioridad alta.
 -Dentro de cada prioridad se respeta el orden FIFO.
 -No se utilizó PriorityQueue.
 
-# Ejemplo de funcionamiento:
+## Ejemplo de funcionamiento:
 
 Alta: A1, A2
 Normal: N1, N2
@@ -117,11 +117,11 @@ Salida esperada:
 A1 → A2 → N1 → N2
 
 -----
-### Parte D — Extensión de Complejidad
+# Parte D — Extensión de Complejidad
 
 Se implementaron las siguientes mejoras adicionales:
 
-# 1. Contador total de canciones reproducidas
+## 1. Contador total de canciones reproducidas
 
 Se agregó una variable que incrementa cada vez que una canción finaliza su reproducción.
 
@@ -129,7 +129,7 @@ Al terminar la playlist se muestra:
 
 [LOG] Total songs played: 4
 
-# 2. Tiempo total acumulado reproducido
+## 2. Tiempo total acumulado reproducido
 
 Se lleva un acumulado del tiempo total de todas las canciones reproducidas.
 
@@ -137,7 +137,7 @@ Al finalizar la ejecución se muestra:
 
 [LOG] Total time played: 36 seconds
 
-# 3. Barra de progreso visual
+## 3. Barra de progreso visual
 
 Durante la reproducción se muestra una barra dinámica que representa el avance de la canción segundo a segundo:
 
@@ -156,7 +156,7 @@ La cola fue implementada manualmente utilizando nodos enlazados para garantizar 
 
 El handler utiliza dos colas internas para gestionar prioridad sin romper el orden FIFO.
 
-# Cómo manejé la simulación de duración
+## Cómo manejé la simulación de duración
 
 Cada canción tiene una duración variable entre 5 y 30 segundos.
 
